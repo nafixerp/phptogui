@@ -10,21 +10,21 @@ Status snapshot (after User Access).
 | Dashboard + sidebar nav | NativeDashboardController | ✅ scaffold |
 | Permissions enforcement | Enums/Permission, userd | ✅ done |
 | Company selection (DB switch) | CompanySelectController | ◑ partial — top-bar DB switch works; the company registry (`storage/app/company-select.json`) + add/rename company UI not ported |
-| **User Access editor** | UserAccessController | ✅ **done** (userm+userd, create→login round-trip tested) |
-| Application Settings | ApplicationSettingsController | ⏳ remaining (shop name/logo/general flags in `generals`) |
+| **User Access editor** | UserAccessController | ✅ done (userm+userd, create→login round-trip tested) |
+| **Application Settings** | ApplicationSettingsController | ✅ done — DB-backed part (shop info in `generals`, CLASTNO/SLASTNO, SBPREF/SBLEN). INI app/printer prefs + logo upload out of scope (file-based, not DB) |
 
 ## Phase 2 — Masters
 | Module | Controller | Status |
 |---|---|---|
 | **Stock Type** | StockTypeController | ✅ done |
-| Item Master | ItemMasterController | ⏳ remaining (largest master) |
-| Item Group | ItemGroupController | ⏳ remaining |
-| Item Sub-Group | ItemSubGroupController | ⏳ remaining |
-| Item Purity Type | ItemPurityTypeController | ⏳ remaining |
-| Counters | CountersController | ⏳ remaining |
-| Bill Prefix | BillPrefixController | ⏳ remaining |
-| Denomination Master | DenominationMasterController | ⏳ remaining |
-| MC Table | MCTableController | ⏳ remaining |
+| **Item Group** | ItemGroupController | ✅ done |
+| **Item Sub-Group** | ItemSubGroupController | ✅ done |
+| **Item Purity Type** | ItemPurityTypeController | ✅ done (rename cascade + usage guard) |
+| **Counters** | CountersController | ✅ done (generali seed) |
+| **Bill Prefix** | BillPrefixController | ✅ done (salestype + counter seed; bulk stale-delete deferred) |
+| **Denomination Master** | DenominationMasterController | ✅ done |
+| **MC Table** | MCTableController | ✅ done (bulk slab replace) |
+| Item Master | ItemMasterController | ⏳ remaining (largest master — read docs/item-create-logic.txt) |
 | Party MC Table | PartyMCTableController | ⏳ remaining |
 | Country/Currency (settings UI) | CountryCurrencyController | ◑ read at login; settings editor not ported |
 

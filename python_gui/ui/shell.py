@@ -27,6 +27,14 @@ _MODULES: dict[str, str] = {
     "MDI_ACCOUNTS_MASTER": "python_gui.modules.account_master.view:AccountMasterView",
     "MDI_PHONE_BOOK": "python_gui.modules.phonebook.view:PhoneBookView",
     "MDI_USER_ACCESS": "python_gui.modules.user_access.view:UserAccessView",
+    "MDI_GROUPS": "python_gui.modules.item_group.view:ItemGroupView",
+    "MDI_SUB_GROUPS": "python_gui.modules.item_subgroup.view:ItemSubGroupView",
+    "MDI_PURITY_TYPE": "python_gui.modules.purity_type.view:PurityTypeView",
+    "MDI_COUNTERS": "python_gui.modules.counters.view:CountersView",
+    "MDI_BILL_PREFIX": "python_gui.modules.bill_prefix.view:BillPrefixView",
+    "MDI_DENOMINATION_MASTER": "python_gui.modules.denomination.view:DenominationView",
+    "MDI_MC_TABLE": "python_gui.modules.mctable.view:MCTableView",
+    "MDI_APPLICATION_SETTINGS": "python_gui.modules.app_settings.view:AppSettingsView",
 }
 _IMPLEMENTED = {"MDI_DASHBOARD", *_MODULES.keys()}
 

@@ -70,9 +70,10 @@ existing users without touching the password tables.
 | 1 | Shell: permissions | `Enums/Permission`, `userd` | ✅ map + enforcement done |
 | 1 | Shell: dashboard + sidebar | `NativeDashboardController` | ✅ scaffold |
 | 1 | **User access editor** | `UserAccessController` | ✅ done (userm+userd, login round-trip tested) |
-| 1 | Application settings | `ApplicationSettingsController` | ⏳ remaining |
+| 1 | **Application settings** | `ApplicationSettingsController` | ✅ done (DB-backed shop info + counters) |
 | 2 | **Stock Type** master | `StockTypeController`, `StockType` | ✅ done (repo+service+view, tested) |
-| 2 | Masters: groups, counters, bill prefix, denomination, MC, … | `ItemGroupController` … | ⏳ to backfill |
+| 2 | **Masters**: group, sub-group, purity, counters, bill prefix, denomination, MC table | `ItemGroupController` … | ✅ done (tested) |
+| 2 | Item Master, Party MC Table, Country/Currency UI | `ItemMasterController` … | ⏳ remaining |
 | 3 | **Parties** (Customer/Supplier/Staff/…) | `NativeCustomerController` | ✅ core CRUD done (clients+accountm, tested) |
 | 3 | **Phone book** (read-only directory) | `PhoneBookController` | ✅ done (tested) |
 | 3 | Opening weights, op bills, party reports | `PartyOpWeightController` … | ⏳ remaining |
