@@ -72,8 +72,9 @@ existing users without touching the password tables.
 | 1 | Application settings | `ApplicationSettingsController` | ⏳ pending |
 | 1 | User access editor | `UserAccessController` | ⏳ pending |
 | 2 | **Stock Type** master | `StockTypeController`, `StockType` | ✅ done (repo+service+view, tested) |
-| 2 | Masters: groups, counters, bill prefix, denomination, MC, … | `ItemGroupController` … | ⏳ next |
-| 3 | Parties | `NativeCustomerController` … | ⏳ |
+| 2 | Masters: groups, counters, bill prefix, denomination, MC, … | `ItemGroupController` … | ⏳ to backfill |
+| 3 | **Parties** (Customer/Supplier/Staff/…) | `NativeCustomerController` | ✅ core CRUD done (clients+accountm, tested) |
+| 3 | Phone book, opening weights, op bills, party reports | `PhoneBookController` … | ⏳ next |
 | 4 | Accounting core | `docs/accounting-posting-logic.md` | ⏳ riskiest |
 | 5 | Sales | `SalesBillController` … | ⏳ |
 | 6 | Purchase | `PurchaseBillController` … | ⏳ |
