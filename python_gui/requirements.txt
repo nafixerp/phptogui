@@ -1,0 +1,7 @@
+# GoldApp Desktop — Python GUI dependencies
+customtkinter>=5.2,<6
+SQLAlchemy>=2.0,<3
+mysql-connector-python>=9.0
+python-dotenv>=1.0          # optional; core.config has its own parser fallback
+reportlab>=4.0
+pyinstaller>=6.0            # packaging (Windows one-folder .exe)

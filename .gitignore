@@ -1,0 +1,15 @@
+# Extracted Laravel app (already contained in the committed zip; do not track)
+extracted/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+build/
+dist/
+*.spec
+
+# Local env overrides
+python_gui/.env
