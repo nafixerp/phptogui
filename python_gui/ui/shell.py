@@ -30,6 +30,8 @@ _MODULES: dict[str, str] = {
     "MDI_ACCOUNTS_JOURNAL": "python_gui.modules.journal.view:JournalView",
     "MDI_ACCOUNTS_AC_LEDGER": "python_gui.modules.account_ledger.view:AccountLedgerView",
     "MDI_DAYBOOK": "python_gui.modules.day_book.view:DayBookView",
+    "MDI_SALES_BILL": "python_gui.modules.sales.view:SalesView",
+    "MDI_PURCHASE_BILL": "python_gui.modules.purchase.view:PurchaseView",
     "MDI_PHONE_BOOK": "python_gui.modules.phonebook.view:PhoneBookView",
     "MDI_USER_ACCESS": "python_gui.modules.user_access.view:UserAccessView",
     "MDI_GROUPS": "python_gui.modules.item_group.view:ItemGroupView",

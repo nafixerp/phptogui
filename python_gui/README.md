@@ -81,8 +81,8 @@ existing users without touching the password tables.
 | 4 | **Account Master** | `AccountMasterController` | ✅ done (accountm CRUD, tested) |
 | 4 | **Posting engine + Receipt + Payment** | `ReceiptController`, `PaymentController` | ✅ done (zero-sum invariant tested) |
 | 4 | **Journal + Account Ledger + Day Book** | `JournalController`, `AccountLedgerController`, `DayBookController` | ✅ done (tested) |
-| 5 | Sales | `SalesBillController` … | ⏳ |
-| 6 | Purchase | `PurchaseBillController` … | ⏳ |
+| 5 | **Sales posting** (daybook RS/tax/EP/ROUND) | `SalesBillController` | ✅ posting done (zero-sum tested); item-grid UI follow-on |
+| 6 | **Purchase posting** (daybook EP/tax/supplier/ROUND) | `PurchaseBillController` | ✅ posting done (zero-sum tested); item-grid UI follow-on |
 | 7 | Inventory/Barcode | `StockController`, `Barcode*` | ⏳ |
 | 8 | Orders | `OrderBillController` … | ⏳ |
 | 9 | Schemes/Goldsmith/Staff | `Kuri*`, `Smith*`, `Staff*` | ⏳ |
