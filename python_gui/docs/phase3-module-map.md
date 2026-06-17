@@ -19,7 +19,7 @@ matching account row is `accountm.accode = clients.code`.
 | Module | Controller | View | Tables | Status |
 |---|---|---|---|---|
 | **Customer / Supplier / parties** ✅ | `NativeCustomerController` | `native/customer/form` | `clients`, `accountm`, `generals`, `generali`, `clients_advanced` | core CRUD done |
-| Phone book | `PhoneBookController` | `phone-book` | phone book table | ⏳ next |
+| **Phone book** ✅ | `PhoneBookController` | `phone-book` | `clients` (+ `clients_advanced`) | read-only directory done |
 | Party opening weight | `PartyOpWeightController` | `party-op-weight` | clients/accountm weights | ⏳ |
 | Customer opening bills | `CustomerOpBillsController` | `op-bill-creation/customers` | bills | ⏳ |
 | Customer reports / campaign | `CustomerReportsController`, `CustomerCampaignController` | … | — | ⏳ |

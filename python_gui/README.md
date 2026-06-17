@@ -74,7 +74,8 @@ existing users without touching the password tables.
 | 2 | **Stock Type** master | `StockTypeController`, `StockType` | ✅ done (repo+service+view, tested) |
 | 2 | Masters: groups, counters, bill prefix, denomination, MC, … | `ItemGroupController` … | ⏳ to backfill |
 | 3 | **Parties** (Customer/Supplier/Staff/…) | `NativeCustomerController` | ✅ core CRUD done (clients+accountm, tested) |
-| 3 | Phone book, opening weights, op bills, party reports | `PhoneBookController` … | ⏳ next |
+| 3 | **Phone book** (read-only directory) | `PhoneBookController` | ✅ done (tested) |
+| 3 | Opening weights, op bills, party reports | `PartyOpWeightController` … | ⏳ remaining |
 | 4 | **Account Master** | `AccountMasterController` | ✅ done (accountm CRUD, tested) |
 | 4 | Posting engine, Receipt, Payment, Journal, Ledger, Day Book | `docs/accounting-posting-logic.md` | ⏳ next (riskiest) |
 | 5 | Sales | `SalesBillController` … | ⏳ |
