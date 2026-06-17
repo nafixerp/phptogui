@@ -14,7 +14,8 @@ engine and rebuilding it against the new database (see `Database.use_database`).
 
 from __future__ import annotations
 
-from typing import Any, Mapping, Sequence
+from contextlib import contextmanager
+from typing import Any, Iterator, Mapping, Sequence
 from urllib.parse import quote_plus
 
 from .config import DbConfig, config
@@ -50,6 +51,19 @@ def build_url(db: DbConfig, database: str | None = None) -> str:
         f"mysql+mysqlconnector://{auth}@{db.host}:{db.port}/{name}"
         f"?charset={db.charset}"
     )
+
+
+class Tx:
+    """A bound connection inside an open transaction (see Database.transaction)."""
+
+    def __init__(self, conn):
+        self.conn = conn
+
+    def execute(self, sql: str, params: Mapping[str, Any] | None = None):
+        return self.conn.execute(text(sql), params or {})
+
+    def scalar(self, sql: str, params: Mapping[str, Any] | None = None) -> Any:
+        return self.conn.execute(text(sql), params or {}).scalar()
 
 
 class Database:
@@ -100,9 +114,21 @@ class Database:
             return conn.execute(text(sql), params or {}).scalar()
 
     def execute(self, sql: str, params: Mapping[str, Any] | Sequence[Mapping[str, Any]] | None = None):
-        """Run a write inside a transaction (commit/rollback handled)."""
+        """Run a single write inside its own transaction (commit/rollback handled)."""
         with self.engine.begin() as conn:
             return conn.execute(text(sql), params or {})
+
+    @contextmanager
+    def transaction(self) -> "Iterator[Tx]":
+        """Group several writes atomically — mirrors Laravel's DB::transaction().
+
+        Usage:
+            with db.transaction() as tx:
+                tx.execute("INSERT ...", {...})
+                tx.execute("UPDATE ...", {...})
+        """
+        with self.engine.begin() as conn:
+            yield Tx(conn)
 
     def table_exists(self, table: str) -> bool:
         row = self.fetchone(
@@ -119,6 +145,15 @@ class Database:
             {"db": self.database, "t": table, "c": column},
         )
         return row is not None
+
+    def columns(self, table: str) -> list[str]:
+        """Lower-cased column names for a table (empty list if table absent)."""
+        rows = self.fetchall(
+            "SELECT column_name FROM information_schema.columns "
+            "WHERE table_schema = :db AND table_name = :t",
+            {"db": self.database, "t": table},
+        )
+        return [str(next(iter(r.values()))).lower() for r in rows]
 
     def list_databases(self) -> list[str]:
         """For the company selector. Mirrors CompanySelectController's SHOW DATABASES."""

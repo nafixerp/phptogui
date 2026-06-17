@@ -18,8 +18,12 @@ from ..core.auth import AppSession, AuthService
 from ..core.db import db
 from ..core.permissions import GROUPED, label_for
 
-# Permission keys that have a working Phase 1 window. Others are placeholders.
-_IMPLEMENTED = {"MDI_DASHBOARD"}
+# Permission keys with a working window. Others render as disabled placeholders.
+# Value = dotted import path "module:ClassName" (imported lazily on open).
+_MODULES: dict[str, str] = {
+    "MDI_STOCK_TYPE": "python_gui.modules.stocktype.view:StockTypeView",
+}
+_IMPLEMENTED = {"MDI_DASHBOARD", *_MODULES.keys()}
 
 
 class ShellFrame(ctk.CTkFrame):
@@ -34,9 +38,10 @@ class ShellFrame(ctk.CTkFrame):
 
         self._build_topbar()
         self._build_sidebar()
-        self.content = ctk.CTkScrollableFrame(self)
+        self.content = ctk.CTkFrame(self)
         self.content.grid(row=1, column=1, sticky="nsew", padx=(0, 10), pady=(0, 10))
         self.content.grid_columnconfigure(0, weight=1)
+        self.content.grid_rowconfigure(1, weight=1)
         self._show_dashboard()
 
     # -- top bar ------------------------------------------------------------
@@ -92,6 +97,7 @@ class ShellFrame(ctk.CTkFrame):
                     hover_color=("gray80", "gray30"),
                     state="normal" if implemented else "disabled",
                     command=(self._show_dashboard if key == "MDI_DASHBOARD"
+                             else (lambda k=key: self._open_module(k)) if key in _MODULES
                              else lambda k=key: self._placeholder(k)),
                 ).pack(fill="x", padx=4)
 
@@ -125,6 +131,21 @@ class ShellFrame(ctk.CTkFrame):
                 row=i, column=0, sticky="w", padx=12, pady=4
             )
             ctk.CTkLabel(card, text=str(v), anchor="w").grid(row=i, column=1, sticky="w", padx=12, pady=4)
+
+    def _open_module(self, key: str) -> None:
+        import importlib
+
+        self._clear_content()
+        try:
+            module_path, _, class_name = _MODULES[key].partition(":")
+            view_cls = getattr(importlib.import_module(module_path), class_name)
+            view = view_cls(self.content, db(), self.session)
+            view.grid(row=0, column=0, rowspan=2, sticky="nsew", padx=4, pady=4)
+        except Exception as exc:
+            ctk.CTkLabel(
+                self.content, text=f"Failed to open {key}: {str(exc).splitlines()[0]}",
+                text_color="#C0392B", wraplength=600,
+            ).grid(row=0, column=0, sticky="w", padx=16, pady=16)
 
     def _placeholder(self, key: str) -> None:
         self._clear_content()

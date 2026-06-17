@@ -71,7 +71,8 @@ existing users without touching the password tables.
 | 1 | Shell: dashboard + sidebar | `NativeDashboardController` | ✅ scaffold |
 | 1 | Application settings | `ApplicationSettingsController` | ⏳ pending |
 | 1 | User access editor | `UserAccessController` | ⏳ pending |
-| 2 | Masters | `ItemMasterController` … | ⏳ |
+| 2 | **Stock Type** master | `StockTypeController`, `StockType` | ✅ done (repo+service+view, tested) |
+| 2 | Masters: groups, counters, bill prefix, denomination, MC, … | `ItemGroupController` … | ⏳ next |
 | 3 | Parties | `NativeCustomerController` … | ⏳ |
 | 4 | Accounting core | `docs/accounting-posting-logic.md` | ⏳ riskiest |
 | 5 | Sales | `SalesBillController` … | ⏳ |
