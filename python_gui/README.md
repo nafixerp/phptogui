@@ -69,8 +69,8 @@ existing users without touching the password tables.
 | 1 | Shell: legacy login | `NativeAuthController`, `UserM`, `PasswordService` | ✅ done (parity-proven) |
 | 1 | Shell: permissions | `Enums/Permission`, `userd` | ✅ map + enforcement done |
 | 1 | Shell: dashboard + sidebar | `NativeDashboardController` | ✅ scaffold |
-| 1 | Application settings | `ApplicationSettingsController` | ⏳ pending |
-| 1 | User access editor | `UserAccessController` | ⏳ pending |
+| 1 | **User access editor** | `UserAccessController` | ✅ done (userm+userd, login round-trip tested) |
+| 1 | Application settings | `ApplicationSettingsController` | ⏳ remaining |
 | 2 | **Stock Type** master | `StockTypeController`, `StockType` | ✅ done (repo+service+view, tested) |
 | 2 | Masters: groups, counters, bill prefix, denomination, MC, … | `ItemGroupController` … | ⏳ to backfill |
 | 3 | **Parties** (Customer/Supplier/Staff/…) | `NativeCustomerController` | ✅ core CRUD done (clients+accountm, tested) |

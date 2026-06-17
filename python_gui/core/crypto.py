@@ -69,6 +69,16 @@ def pcode_hex(password: str) -> str:
     return fp_encrypt(password).hex().upper()
 
 
+def pcode_value(password: str) -> str:
+    """The string stored in `userm.pcode` (PasswordService::encrypt).
+
+    PHP stores the UTF-8 text of the fp-encrypted bytes; the DB column is
+    VARCHAR, and login compares UPPER(HEX(pcode)). Returning the decoded str
+    lets the driver re-encode to utf8mb4 to the identical bytes.
+    """
+    return fp_encrypt(password).decode("utf-8")
+
+
 if __name__ == "__main__":
     import sys
 
