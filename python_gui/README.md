@@ -80,7 +80,7 @@ existing users without touching the password tables.
 | 3 | Opening weights, op bills, party reports | `PartyOpWeightController` … | ⏳ remaining |
 | 4 | **Account Master** | `AccountMasterController` | ✅ done (accountm CRUD, tested) |
 | 4 | **Posting engine + Receipt + Payment** | `ReceiptController`, `PaymentController` | ✅ done (zero-sum invariant tested) |
-| 4 | Journal, Account Ledger, Day Book, Cash/Bank book | `JournalController` … | ⏳ remaining |
+| 4 | **Journal + Account Ledger + Day Book** | `JournalController`, `AccountLedgerController`, `DayBookController` | ✅ done (tested) |
 | 5 | Sales | `SalesBillController` … | ⏳ |
 | 6 | Purchase | `PurchaseBillController` … | ⏳ |
 | 7 | Inventory/Barcode | `StockController`, `Barcode*` | ⏳ |

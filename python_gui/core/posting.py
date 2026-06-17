@@ -45,6 +45,12 @@ class PostingEngine:
         if getattr(res, "rowcount", 0) == 0:
             tx.execute("INSERT INTO generali (code, cvalue) VALUES (:c, :v)", {"c": code, "v": value})
 
+    def increment_gen_int(self, tx: Tx, code: str) -> int:
+        """Port of incrementGenInt() — current+1, persisted (no vchno de-dupe)."""
+        nxt = self.gen_int(code) + 1
+        self._set_generali(tx, code, nxt)
+        return nxt
+
     # -- serial / voucher numbers ------------------------------------------
     def next_serial_no(self, tx: Tx) -> int:
         """Port of nextSerialNo() — max(SERIALNO, max slno across tables) + 1."""
