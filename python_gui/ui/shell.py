@@ -25,6 +25,8 @@ _MODULES: dict[str, str] = {
     "MDI_CUSTOMER": "python_gui.modules.parties.view:CustomerView",
     "MDI_SUPPLIER_MASTER": "python_gui.modules.parties.view:SupplierView",
     "MDI_ACCOUNTS_MASTER": "python_gui.modules.account_master.view:AccountMasterView",
+    "MDI_ACCOUNTS_RECEIPT": "python_gui.modules.receipt.view:ReceiptView",
+    "MDI_ACCOUNTS_PAYMENT": "python_gui.modules.payment.view:PaymentView",
     "MDI_PHONE_BOOK": "python_gui.modules.phonebook.view:PhoneBookView",
     "MDI_USER_ACCESS": "python_gui.modules.user_access.view:UserAccessView",
     "MDI_GROUPS": "python_gui.modules.item_group.view:ItemGroupView",
