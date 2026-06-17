@@ -24,6 +24,7 @@ _MODULES: dict[str, str] = {
     "MDI_STOCK_TYPE": "python_gui.modules.stocktype.view:StockTypeView",
     "MDI_CUSTOMER": "python_gui.modules.parties.view:CustomerView",
     "MDI_SUPPLIER_MASTER": "python_gui.modules.parties.view:SupplierView",
+    "MDI_ACCOUNTS_MASTER": "python_gui.modules.account_master.view:AccountMasterView",
 }
 _IMPLEMENTED = {"MDI_DASHBOARD", *_MODULES.keys()}
 
