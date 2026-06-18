@@ -86,7 +86,7 @@ existing users without touching the password tables.
 | 7 | **Barcode Entry + Stock Register** | `BarcodeEntryController`, `StockRegisterController` | ✅ done (tested) |
 | 8 | **Order Bill** (header + advance posting) | `OrderBillController` | ✅ done (advance zero-sum tested) |
 | 9 | **Kuri/Scheme Collection + Smith Book** | `KuriCollectionController`, `SmithController` | ✅ done (collection zero-sum, smith weight tested); Gold Loan/Staff payroll remain |
-| 10 | Compliance/Integration | `Gstr*`, `EInvoice*`, `Tally*` | ⏳ |
+| 10 | **Tally Export + GST Summary** | `TallyExportController`, `GstrReportController` | ✅ done (tested); e-invoice JSON follow-on |
 
 ## Notes
 
