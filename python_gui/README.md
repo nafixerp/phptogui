@@ -123,6 +123,7 @@ Long-tail read reports being ported in themed batches on top of the core.
 | Orders | **Pending Register, Advance Report** (added to Order Reports) | `OrderPendingRegisterController`, `OrderAdvanceReportController` | ✅ done (item-level pending; advance = advance+eamt+sretamt+advafter; pending/returned filter; tested) |
 | Smith | **Transaction Summary, W&A Summary** | `SmithTransSummaryController`, `SmithWaSummaryController` | ✅ done (per-smith issued/received/pending net weight, wastage, MC+stone, paid; cumulative W&A balances + last-issue + cash; tested) |
 | Party | **Party Outstanding** (supplier payable / customer receivable) | `SupplierReportsController`, `CustomerReportsController` duedate | ✅ done (`opbal+Σdaybook` to as-of, TG/TR split, name/mobile from clients; tested) |
+| Misc | **Non-Transactional Days, Gold Rate History** | `NonTransactionalDaysReportController`, `GoldRateStoryController` | ✅ done (range days with no daybook/smithm activity; ratehistory 22k/18k/silver/platinum; tested) |
 
 ## Notes
 
