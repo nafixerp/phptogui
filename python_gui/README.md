@@ -134,6 +134,7 @@ Long-tail read reports being ported in themed batches on top of the core.
 | **Goldsmith New-Work Note** | `GoldsmithNewWorkNoteController` | ✅ done (smithnewwrk grid CRUD: delete-ids, upsert by sno, blank-smithcode delete + sweep, status 1/2/3 filters; tested) |
 | **PDC Collection / Clearance** | `PdcCollectionController` | ✅ done (cheque clearance daybook posting via PostingEngine — party/bank/BEXP/SCHARGE lines, R/P+control voucher series, bounce reversal, pdclist marked collected; zero-sum tested) |
 | **Rate Difference Adjustment** | `RateDiffAdjustmentController` | ✅ done (two-line journal RDIFF/party, JLB//JLE/ voucher by control, optional collection row for bill-based diffs; zero-sum tested) |
+| **Barcode Multi-Entry** | `BarcodeMultiEntryController` | ✅ done (bulk barcode upsert by bcode, shared rslno/BC-docno, BCNO counter advance, column-filtered, stk='Y'; tested. Secondary-DB mirror is a follow-on) |
 
 ## Notes
 
