@@ -88,6 +88,7 @@ existing users without touching the password tables.
 | 6 | **Diamond Purchase** (register + stone detail) | `DiamondPurchaseBillController` | ✅ register/load done (`pr='P' dmd='Y'` over `purchasem`/`purchased` + `purchased_dmddet` stone sub-rows grouped by `prow`; doc-no preview `DPBPREF`+`DPURCHASEB`; daybook reuses PL posting; tested) |
 | 5/6 | **Sales/Purchase Registers** (+returns) + bill-print PDF base | `SalesRegisterController` …, `core/pdf.py` | ✅ done (tested) |
 | 7 | **Barcode Entry/Stock List, Stock Register/Verification, Item Adjustment** | `Barcode*`, `StockRegisterController`, `StockVerificationController`, `ItemAdjustmentController` | ✅ done (tested) |
+| 7 | **Barcode Profit, Marked List, Diamond/Stone Stock, Counter Issue, Reorder** | `BarcodeProfitReportController`, `MarkedListController`, `DiamondStoneStockController`, `CounterIssueController`, `ReorderController` | ✅ done (cost/profit rules, mark/type filters, in-stock stone aggregates, counter list, `rotable` replace + `models` register; tested) |
 | 8 | **Order Bill + Order Cancel** | `OrderBillController`, `OrderCancelController` | ✅ done (advance zero-sum + cancel/reverse tested) |
 | 9 | **Kuri Collection + Smith Book + Staff Transaction** | `KuriCollectionController`, `SmithController`, `StaffTransactionController` | ✅ done (zero-sum tested); Gold Loan/salary follow-on |
 | 10 | **Tally Export + GST Summary** | `TallyExportController`, `GstrReportController` | ✅ done (tested); e-invoice JSON follow-on |
