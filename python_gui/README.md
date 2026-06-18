@@ -122,6 +122,7 @@ Long-tail read reports being ported in themed batches on top of the core.
 | Items | **Itemwise Profit, Item Movement, Cost List** | `ItemwiseProfitController`, `ItemMovementController`, `ItemReportsController` | ✅ done (cost basis cost*qty when stkinnos='Y' else cost*weight; sr='S'/opbill guards; movement totals; master cost/rate list; tested) |
 | Orders | **Pending Register, Advance Report** (added to Order Reports) | `OrderPendingRegisterController`, `OrderAdvanceReportController` | ✅ done (item-level pending; advance = advance+eamt+sretamt+advafter; pending/returned filter; tested) |
 | Smith | **Transaction Summary, W&A Summary** | `SmithTransSummaryController`, `SmithWaSummaryController` | ✅ done (per-smith issued/received/pending net weight, wastage, MC+stone, paid; cumulative W&A balances + last-issue + cash; tested) |
+| Party | **Party Outstanding** (supplier payable / customer receivable) | `SupplierReportsController`, `CustomerReportsController` duedate | ✅ done (`opbal+Σdaybook` to as-of, TG/TR split, name/mobile from clients; tested) |
 
 ## Notes
 
