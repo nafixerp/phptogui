@@ -81,7 +81,7 @@ existing users without touching the password tables.
 | 3 | **Party Opening Weight, Customer Op Bills, Party Reports, Secondary-DB Sync** | `PartyOpWeightController`, `CustomerOpBillsController`, `SecondaryDatabaseSync` | ✅ done (tested) |
 | 4 | **Account Master** | `AccountMasterController` | ✅ done (accountm CRUD, tested) |
 | 4 | **Posting engine + Receipt + Payment** | `ReceiptController`, `PaymentController` | ✅ done (zero-sum invariant tested) |
-| 4 | **Journal + Account Ledger + Day Book** | `JournalController`, `AccountLedgerController`, `DayBookController` | ✅ done (tested) |
+| 4 | **Journal, Ledger, Day Book/Summary, Cash/Bank Book, Debit/Credit Note, Expense Voucher** | `JournalController` … | ✅ done (tested) |
 | 5 | **Sales + Sales Return** | `SalesBillController`, `SalesReturnController` | ✅ done — item grid + calc + return posting (zero-sum tested) |
 | 6 | **Purchase + Purchase Return** | `PurchaseBillController`, `PurchaseReturnController` | ✅ done — item grid + calc + return posting (zero-sum tested) |
 | 5/6 | **Sales/Purchase Registers** (+returns) + bill-print PDF base | `SalesRegisterController` …, `core/pdf.py` | ✅ done (tested) |
