@@ -85,7 +85,7 @@ existing users without touching the password tables.
 | 6 | **Purchase posting** (daybook EP/tax/supplier/ROUND) | `PurchaseBillController` | ✅ posting done (zero-sum tested); item-grid UI follow-on |
 | 7 | **Barcode Entry + Stock Register** | `BarcodeEntryController`, `StockRegisterController` | ✅ done (tested) |
 | 8 | **Order Bill** (header + advance posting) | `OrderBillController` | ✅ done (advance zero-sum tested) |
-| 9 | Schemes/Goldsmith/Staff | `Kuri*`, `Smith*`, `Staff*` | ⏳ |
+| 9 | **Kuri/Scheme Collection + Smith Book** | `KuriCollectionController`, `SmithController` | ✅ done (collection zero-sum, smith weight tested); Gold Loan/Staff payroll remain |
 | 10 | Compliance/Integration | `Gstr*`, `EInvoice*`, `Tally*` | ⏳ |
 
 ## Notes
