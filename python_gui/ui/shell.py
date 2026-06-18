@@ -92,6 +92,7 @@ _MODULES: dict[str, str] = {
     "MDI_GOLDSMITH_ANALYTICS": "python_gui.modules.smith_reports.view:SmithReportsView",
     "MDI_GOLD_RATE_STORY": "python_gui.modules.misc_reports.view:MiscReportsView",
     "MDI_RATE_UPDATE": "python_gui.modules.rate_entry.view:RateEntryView",
+    "MDI_GOLDSMITH_NEW_WORK": "python_gui.modules.goldsmith_newwork.view:GoldsmithNewWorkView",
     "MDI_DELIVERY_STATUS_REPORT": "python_gui.modules.sales_misc_reports.view:SalesMiscReportsView",
     "MDI_VA_CHECK_LIST": "python_gui.modules.sales_misc_reports.view:SalesMiscReportsView",
     "MDI_SUPPLIER_ANALYTICS": "python_gui.modules.party_outstanding.view:PartyOutstandingView",
