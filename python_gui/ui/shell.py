@@ -48,6 +48,9 @@ _MODULES: dict[str, str] = {
     "MDI_BILL_PREFIX": "python_gui.modules.bill_prefix.view:BillPrefixView",
     "MDI_DENOMINATION_MASTER": "python_gui.modules.denomination.view:DenominationView",
     "MDI_MC_TABLE": "python_gui.modules.mctable.view:MCTableView",
+    "MDI_GIFT_TABLE": "python_gui.modules.gift_table.view:GiftTableView",
+    "MDI_WASTAGE_TABLE": "python_gui.modules.wastage_table.view:WastageTableView",
+    "MDI_POINT_CARD": "python_gui.modules.point_card.view:PointCardView",
     "MDI_ITEM_MASTER": "python_gui.modules.item_master.view:ItemMasterView",
     "MDI_APPLICATION_SETTINGS": "python_gui.modules.app_settings.view:AppSettingsView",
 }

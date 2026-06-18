@@ -74,6 +74,7 @@ existing users without touching the password tables.
 | 2 | **Stock Type** master | `StockTypeController`, `StockType` | ✅ done (repo+service+view, tested) |
 | 2 | **Masters**: group, sub-group, purity, counters, bill prefix, denomination, MC table | `ItemGroupController` … | ✅ done (tested) |
 | 2 | **Item Master** | `ItemMasterController` | ✅ done (column-filtered payload, delete guards, rename cascade) |
+| 2 | **Gift Table, Wastage Table, Point Card** | `GiftTableController`, `WastageTableController`, `PointCardController` | ✅ done (tested) |
 | 2 | Party MC Table, Country/Currency UI | `PartyMCTableController` … | ⏳ remaining |
 | 3 | **Parties** (Customer/Supplier/Staff/…) | `NativeCustomerController` | ✅ core CRUD done (clients+accountm, tested) |
 | 3 | **Phone book** (read-only directory) | `PhoneBookController` | ✅ done (tested) |
