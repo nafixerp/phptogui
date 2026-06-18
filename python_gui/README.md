@@ -112,6 +112,14 @@ existing users without touching the password tables.
 | 10 | **Tally Export + GST Summary** | `TallyExportController`, `GstrReportController` | ✅ done (tested) |
 | 10 | **e-Invoice Register + Outstanding Tax + TDS Report + Purity Certificate** | `EInvoiceRegisterController`, `OutstandingTaxReportController`, `TdsReportController`, `PurityCertificateController` | ✅ done (e_invoices IRN ledger + detail; output/input GST+TCS net; smithm TDS; purity cert counter + item search; tested). Detailed GSTR B2B/B2C depends on the newer `sales_bills` table (absent from the frozen demo) — guarded follow-on. |
 
+## Bucket A — analytical reports (in progress)
+
+Long-tail read reports being ported in themed batches on top of the core.
+
+| Group | Modules | Source | Status |
+|------|---------|--------|--------|
+| Accounts | **Chart of Accounts, Group Summary, Cash Balance** | `ChartOfAccountsController`, `CashBalanceController`, `AcSummaryController` group rollup | ✅ done (shared `opbal+Σdaybook` balance, as-of date, type/group filters; tested) |
+
 ## Notes
 
 - The sandbox where this scaffold was built has **no MySQL server**, so the live
