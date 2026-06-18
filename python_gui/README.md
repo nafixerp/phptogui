@@ -124,6 +124,7 @@ Long-tail read reports being ported in themed batches on top of the core.
 | Smith | **Transaction Summary, W&A Summary** | `SmithTransSummaryController`, `SmithWaSummaryController` | ✅ done (per-smith issued/received/pending net weight, wastage, MC+stone, paid; cumulative W&A balances + last-issue + cash; tested) |
 | Party | **Party Outstanding** (supplier payable / customer receivable) | `SupplierReportsController`, `CustomerReportsController` duedate | ✅ done (`opbal+Σdaybook` to as-of, TG/TR split, name/mobile from clients; tested) |
 | Misc | **Non-Transactional Days, Gold Rate History** | `NonTransactionalDaysReportController`, `GoldRateStoryController` | ✅ done (range days with no daybook/smithm activity; ratehistory 22k/18k/silver/platinum; tested) |
+| Sales misc | **Delivery Status, VA Check List** | `DeliveryStatusReportController`, `VACheckListController` | ✅ done (per-bill delivery status + net gold weight + balance; period value-addition totals + avg VA%; tested) |
 
 ## Notes
 
