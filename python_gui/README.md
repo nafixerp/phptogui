@@ -82,8 +82,8 @@ existing users without touching the password tables.
 | 4 | **Account Master** | `AccountMasterController` | ✅ done (accountm CRUD, tested) |
 | 4 | **Posting engine + Receipt + Payment** | `ReceiptController`, `PaymentController` | ✅ done (zero-sum invariant tested) |
 | 4 | **Journal + Account Ledger + Day Book** | `JournalController`, `AccountLedgerController`, `DayBookController` | ✅ done (tested) |
-| 5 | **Sales** (item grid + calcTotals + posting) | `SalesBillController` | ✅ done — line calc + tax + zero-sum posting tested |
-| 6 | **Purchase** (item grid + calc + posting) | `PurchaseBillController` | ✅ done — line calc + tax + zero-sum posting tested |
+| 5 | **Sales + Sales Return** | `SalesBillController`, `SalesReturnController` | ✅ done — item grid + calc + return posting (zero-sum tested) |
+| 6 | **Purchase + Purchase Return** | `PurchaseBillController`, `PurchaseReturnController` | ✅ done — item grid + calc + return posting (zero-sum tested) |
 | 7 | **Barcode Entry + Stock Register** | `BarcodeEntryController`, `StockRegisterController` | ✅ done (tested) |
 | 8 | **Order Bill** (header + advance posting) | `OrderBillController` | ✅ done (advance zero-sum tested) |
 | 9 | **Kuri/Scheme Collection + Smith Book** | `KuriCollectionController`, `SmithController` | ✅ done (collection zero-sum, smith weight tested); Gold Loan/Staff payroll remain |
