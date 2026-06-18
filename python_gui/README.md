@@ -132,6 +132,7 @@ Long-tail read reports being ported in themed batches on top of the core.
 |--------|--------|--------|
 | **Daily Rates** | `RateController` | ✅ done (generald upsert per code + once-a-day ratehistory upsert, RATESETUP permission gate, per-code decimal rounding; tested) |
 | **Goldsmith New-Work Note** | `GoldsmithNewWorkNoteController` | ✅ done (smithnewwrk grid CRUD: delete-ids, upsert by sno, blank-smithcode delete + sweep, status 1/2/3 filters; tested) |
+| **PDC Collection / Clearance** | `PdcCollectionController` | ✅ done (cheque clearance daybook posting via PostingEngine — party/bank/BEXP/SCHARGE lines, R/P+control voucher series, bounce reversal, pdclist marked collected; zero-sum tested) |
 
 ## Notes
 
