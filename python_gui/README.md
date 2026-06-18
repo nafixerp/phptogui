@@ -75,10 +75,10 @@ existing users without touching the password tables.
 | 2 | **Masters**: group, sub-group, purity, counters, bill prefix, denomination, MC table | `ItemGroupController` … | ✅ done (tested) |
 | 2 | **Item Master** | `ItemMasterController` | ✅ done (column-filtered payload, delete guards, rename cascade) |
 | 2 | **Gift Table, Wastage Table, Point Card** | `GiftTableController`, `WastageTableController`, `PointCardController` | ✅ done (tested) |
-| 2 | Party MC Table, Country/Currency UI | `PartyMCTableController` … | ⏳ remaining |
+| 2 | **Model Master, Party MC Table, Hallmark, Scale, Country/Currency** | `ModelMasterController` … | ✅ done (tested) |
 | 3 | **Parties** (Customer/Supplier/Staff/…) | `NativeCustomerController` | ✅ core CRUD done (clients+accountm, tested) |
 | 3 | **Phone book** (read-only directory) | `PhoneBookController` | ✅ done (tested) |
-| 3 | Opening weights, op bills, party reports | `PartyOpWeightController` … | ⏳ remaining |
+| 3 | **Party Opening Weight, Customer Op Bills, Party Reports, Secondary-DB Sync** | `PartyOpWeightController`, `CustomerOpBillsController`, `SecondaryDatabaseSync` | ✅ done (tested) |
 | 4 | **Account Master** | `AccountMasterController` | ✅ done (accountm CRUD, tested) |
 | 4 | **Posting engine + Receipt + Payment** | `ReceiptController`, `PaymentController` | ✅ done (zero-sum invariant tested) |
 | 4 | **Journal + Account Ledger + Day Book** | `JournalController`, `AccountLedgerController`, `DayBookController` | ✅ done (tested) |

@@ -31,10 +31,12 @@ class PostingEngine:
         self.db = database
 
     # -- generali counters --------------------------------------------------
-    def gen_int(self, code: str) -> int:
+    def gen_int(self, code: str, runner=None) -> int:
+        # runner may be a Tx (read within an open transaction) or None (own conn)
         if not self.db.table_exists("generali"):
             return 0
-        v = self.db.scalar("SELECT cvalue FROM generali WHERE code = :c LIMIT 1", {"c": code})
+        target = runner or self.db
+        v = target.scalar("SELECT cvalue FROM generali WHERE code = :c LIMIT 1", {"c": code})
         try:
             return int(v) if v is not None else 0
         except (TypeError, ValueError):
@@ -47,14 +49,14 @@ class PostingEngine:
 
     def increment_gen_int(self, tx: Tx, code: str) -> int:
         """Port of incrementGenInt() — current+1, persisted (no vchno de-dupe)."""
-        nxt = self.gen_int(code) + 1
+        nxt = self.gen_int(code, tx) + 1
         self._set_generali(tx, code, nxt)
         return nxt
 
     # -- serial / voucher numbers ------------------------------------------
     def next_serial_no(self, tx: Tx) -> int:
         """Port of nextSerialNo() — max(SERIALNO, max slno across tables) + 1."""
-        current = self.gen_int("SERIALNO")
+        current = self.gen_int("SERIALNO", tx)
         max_used = 0
         for table in _SLNO_TABLES:
             if self.db.table_exists(table) and self.db.column_exists(table, "slno"):
@@ -65,10 +67,10 @@ class PostingEngine:
         self._set_generali(tx, "SERIALNO", nxt)
         return nxt
 
-    def last_voucher_number_for_prefix(self, prefix: str) -> int:
+    def last_voucher_number_for_prefix(self, prefix: str, runner=None) -> int:
         if prefix == "" or not self.db.table_exists("daybookpart") or not self.db.column_exists("daybookpart", "vchno"):
             return 0
-        rows = self.db.fetchall(
+        rows = (runner or self.db).fetchall(
             "SELECT vchno FROM daybookpart WHERE vchno IS NOT NULL AND vchno LIKE :p",
             {"p": f"{prefix}%"},
         )
@@ -84,7 +86,7 @@ class PostingEngine:
 
     def reserve_voucher(self, tx: Tx, prefix: str, counter_code: str, pad: int = 5) -> str:
         """Port of reserveVoucherWithCounter()."""
-        nxt = max(self.gen_int(counter_code), self.last_voucher_number_for_prefix(prefix)) + 1
+        nxt = max(self.gen_int(counter_code, tx), self.last_voucher_number_for_prefix(prefix, tx)) + 1
         self._set_generali(tx, counter_code, nxt)
         return prefix + str(nxt).rjust(pad, "0")
 

@@ -65,6 +65,10 @@ class Tx:
     def scalar(self, sql: str, params: Mapping[str, Any] | None = None) -> Any:
         return self.conn.execute(text(sql), params or {}).scalar()
 
+    def fetchall(self, sql: str, params: Mapping[str, Any] | None = None) -> list[dict]:
+        rows = self.conn.execute(text(sql), params or {})
+        return [dict(r) for r in rows.mappings()]
+
 
 class Database:
     """Thin engine holder with helpers and runtime DB switching."""

@@ -62,6 +62,13 @@ _MODULES: dict[str, str] = {
     "MDI_GIFT_TABLE": "python_gui.modules.gift_table.view:GiftTableView",
     "MDI_WASTAGE_TABLE": "python_gui.modules.wastage_table.view:WastageTableView",
     "MDI_POINT_CARD": "python_gui.modules.point_card.view:PointCardView",
+    "MDI_MODEL_MASTER": "python_gui.modules.model_master.view:ModelMasterView",
+    "MDI_PARTY_MC_TABLE": "python_gui.modules.party_mctable.view:PartyMCTableView",
+    "MDI_HALLMARK": "python_gui.modules.hallmark.view:HallmarkView",
+    "MDI_SCALE_SETTINGS": "python_gui.modules.scale.view:ScaleView",
+    "MDI_PARTY_OP_WEIGHT": "python_gui.modules.party_op_weight.view:PartyOpWeightView",
+    "MDI_OP_BILL_CREATION_CUSTOMERS": "python_gui.modules.customer_op_bills.view:CustomerOpBillsView",
+    "MDI_CUSTOMER_ANALYTICS": "python_gui.modules.party_reports.view:PartyReportsView",
     "MDI_ITEM_MASTER": "python_gui.modules.item_master.view:ItemMasterView",
     "MDI_APPLICATION_SETTINGS": "python_gui.modules.app_settings.view:AppSettingsView",
 }
