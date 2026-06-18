@@ -126,6 +126,12 @@ Long-tail read reports being ported in themed batches on top of the core.
 | Misc | **Non-Transactional Days, Gold Rate History** | `NonTransactionalDaysReportController`, `GoldRateStoryController` | ✅ done (range days with no daybook/smithm activity; ratehistory 22k/18k/silver/platinum; tested) |
 | Sales misc | **Delivery Status, VA Check List** | `DeliveryStatusReportController`, `VACheckListController` | ✅ done (per-bill delivery status + net gold weight + balance; period value-addition totals + avg VA%; tested) |
 
+## Bucket B — entry/write screens (in progress)
+
+| Module | Source | Status |
+|--------|--------|--------|
+| **Daily Rates** | `RateController` | ✅ done (generald upsert per code + once-a-day ratehistory upsert, RATESETUP permission gate, per-code decimal rounding; tested) |
+
 ## Notes
 
 - The sandbox where this scaffold was built has **no MySQL server**, so the live
