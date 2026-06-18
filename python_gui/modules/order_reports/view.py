@@ -7,7 +7,7 @@ from ...core.db import Database
 from ..widgets.datagrid import DataGrid
 from .service import OrderReportsService
 
-_MODES = ["Pending Process", "Returns"]
+_MODES = ["Pending Process", "Returns", "Pending Register", "Advance Report"]
 
 
 class OrderReportsView(ctk.CTkFrame):
@@ -41,13 +41,26 @@ class OrderReportsView(ctk.CTkFrame):
                                 ("billamt", "Bill Amt", 110), ("tadv", "Advance", 110), ("mobile", "Mobile", 120)])
                 self.grid_widget.set_rows([{"ordno": r["ordno"], "tdate": r["tdate"], "custname": r["custname"],
                                             "billamt": f'{r["billamt"]:.2f}', "tadv": f'{r["tadv"]:.2f}', "mobile": r["mobile"]} for r in rows])
-            else:
+            elif self.mode.get() == "Returns":
                 rows = self.service.returns(self.d1.get(), self.d2.get())
                 self._set_cols([("ordno", "Order No", 120), ("custname", "Customer", 180), ("salebill", "Sale Bill", 110),
                                 ("sale_tdate", "Sale Date", 100), ("sale_billamt", "Sale Amt", 120)])
                 self.grid_widget.set_rows([{"ordno": str(r.get("ordno") or ""), "custname": str(r.get("custname") or ""),
                                             "salebill": str(r.get("salebill") or ""), "sale_tdate": str(r.get("sale_tdate") or ""),
                                             "sale_billamt": f'{float(r.get("sale_billamt") or 0):.2f}'} for r in rows])
+            elif self.mode.get() == "Pending Register":
+                rows = self.service.pending_register()
+                self._set_cols([("ordno", "Order No", 110), ("duedate", "Due", 100), ("custname", "Customer", 160),
+                                ("itemname", "Item", 160), ("qty", "Qty", 60), ("weight", "Weight", 100)])
+                self.grid_widget.set_rows([{"ordno": r["ordno"], "duedate": r["duedate"], "custname": r["custname"],
+                                            "itemname": r["itemname"], "qty": r["qty"], "weight": f'{r["weight"]:.3f}'} for r in rows])
+            else:
+                res = self.service.advance_report(self.d1.get(), self.d2.get())
+                rows = res["rows"]
+                self._set_cols([("ordno", "Order No", 110), ("tdate", "Date", 100), ("custname", "Customer", 160),
+                                ("advance", "Cash Adv", 110), ("advaft", "Adv After", 110), ("totadv", "Total Adv", 120)])
+                self.grid_widget.set_rows([{"ordno": r["ordno"], "tdate": r["tdate"], "custname": r["custname"],
+                                            "advance": f'{r["advance"]:.2f}', "advaft": f'{r["advaft"]:.2f}', "totadv": f'{r["totadv"]:.2f}'} for r in rows])
             self.summary.configure(text=f"{len(rows)} row(s).", text_color=("gray20", "gray80"))
         except Exception as exc:
             self.summary.configure(text=str(exc).splitlines()[0], text_color="#C0392B")

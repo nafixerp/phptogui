@@ -120,6 +120,7 @@ Long-tail read reports being ported in themed batches on top of the core.
 |------|---------|--------|--------|
 | Accounts | **Chart of Accounts, Group Summary, Cash Balance** | `ChartOfAccountsController`, `CashBalanceController`, `AcSummaryController` group rollup | ✅ done (shared `opbal+Σdaybook` balance, as-of date, type/group filters; tested) |
 | Items | **Itemwise Profit, Item Movement, Cost List** | `ItemwiseProfitController`, `ItemMovementController`, `ItemReportsController` | ✅ done (cost basis cost*qty when stkinnos='Y' else cost*weight; sr='S'/opbill guards; movement totals; master cost/rate list; tested) |
+| Orders | **Pending Register, Advance Report** (added to Order Reports) | `OrderPendingRegisterController`, `OrderAdvanceReportController` | ✅ done (item-level pending; advance = advance+eamt+sretamt+advafter; pending/returned filter; tested) |
 
 ## Notes
 
