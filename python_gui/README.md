@@ -85,6 +85,7 @@ existing users without touching the password tables.
 | 5 | **Sales** — bill+return+register+print, **reports (net/monthly/salesman/checklist) + confirmation** | `SalesBillController`, `SalesReturnController`, `*ReportController` | ✅ complete (tested) |
 | 6 | **Purchase + Purchase Return** | `PurchaseBillController`, `PurchaseReturnController` | ✅ done — item grid + calc + return posting (zero-sum tested) |
 | 6 | **Purchase reports (net/monthly/supplier/checklist) + Tax Purchase Book + Bill Confirmation** | `PurchaseBookController`, `TaxPurchaseBookController`, `PurchaseCheckListController`, `PurchaseBillConfirmationController` | ✅ done (column-guarded over `purchasem`; confirm flips `control 4→1` across related tables; tested) |
+| 6 | **Diamond Purchase** (register + stone detail) | `DiamondPurchaseBillController` | ✅ register/load done (`pr='P' dmd='Y'` over `purchasem`/`purchased` + `purchased_dmddet` stone sub-rows grouped by `prow`; doc-no preview `DPBPREF`+`DPURCHASEB`; daybook reuses PL posting; tested) |
 | 5/6 | **Sales/Purchase Registers** (+returns) + bill-print PDF base | `SalesRegisterController` …, `core/pdf.py` | ✅ done (tested) |
 | 7 | **Barcode Entry/Stock List, Stock Register/Verification, Item Adjustment** | `Barcode*`, `StockRegisterController`, `StockVerificationController`, `ItemAdjustmentController` | ✅ done (tested) |
 | 8 | **Order Bill + Order Cancel** | `OrderBillController`, `OrderCancelController` | ✅ done (advance zero-sum + cancel/reverse tested) |

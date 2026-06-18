@@ -49,6 +49,7 @@ _MODULES: dict[str, str] = {
     "MDI_PURCHASE_BOOK": "python_gui.modules.purchase_reports.view:PurchaseReportsView",
     "MDI_TAX_PURCHASE_BOOK": "python_gui.modules.purchase_reports.view:PurchaseReportsView",
     "MDI_PURCHASE_CHECK_LIST": "python_gui.modules.purchase_reports.view:PurchaseReportsView",
+    "MDI_DIAMOND_PURCHASE_BILL": "python_gui.modules.diamond_purchase.view:DiamondPurchaseView",
     "MDI_SALES_REGISTER": "python_gui.modules.registers.view:SalesRegisterView",
     "MDI_SALES_RETURN_REGISTER": "python_gui.modules.registers.view:SalesReturnRegisterView",
     "MDI_PURCHASE_REGISTER": "python_gui.modules.registers.view:PurchaseRegisterView",
