@@ -92,7 +92,8 @@ existing users without touching the password tables.
 | 7 | **Stock movement engine + Stock Period Ledger + Stock Summary (cost/rate-wise) + Barcode History** | `StockPeriodLedgerController::calcItemStock`, `StockSummaryCostWise/RateWiseController`, `BarcodeHistoryController` | ✅ done (`core/stock.py` signed opening/issued/received/closing across sales/returns/purchase/smith/refinery/itemadj/orders; metal-split txn summary; per-barcode timeline; tested) |
 | 8 | **Order Bill + Order Cancel** | `OrderBillController`, `OrderCancelController` | ✅ done (advance zero-sum + cancel/reverse tested) |
 | 8 | **Order Rate Fix / Block + Order Process/Returns + Refinery Report + Repair Complaints** | `OrderRateFixController`, `OrderBlockController`, `OrderProcessController`, `OrderReturnsController`, `RefineryReportController`, `RepairComplaintsController` | ✅ done (returned-order guard on rate-fix/block; pending-process advance; order→sale returns; refinery forward/return register; `repcompl` dedup/replace; tested) |
-| 9 | **Kuri Collection + Smith Book + Staff Transaction** | `KuriCollectionController`, `SmithController`, `StaffTransactionController` | ✅ done (zero-sum tested); Gold Loan/salary follow-on |
+| 9 | **Kuri Collection + Smith Book + Staff Transaction** | `KuriCollectionController`, `SmithController`, `StaffTransactionController` | ✅ done (zero-sum tested) |
+| 9 | **Kuri Type Master + PDC Report + Smith Lot Report + Gold Loan** | `KuriTypeMasterController`, `PdcReportController`, `SmithLotReportController`, `GoldLoanController` | ✅ done (kuritype replace/column-filter + in-use guard; pdclist receipt/payment split + delete; smith lot issued/received/pending; loan+loan_items+loancolln load with balance — `loan*` tables confirmed present in demo; tested) |
 | 10 | **Tally Export + GST Summary** | `TallyExportController`, `GstrReportController` | ✅ done (tested); e-invoice JSON follow-on |
 
 ## Notes
