@@ -47,6 +47,20 @@ python -m python_gui.main
 `core/config.py` looks for `.env` at, in order: `$GOLDAPP_ENV`, `../.env`,
 `../extracted/.env`, `python_gui/.env`, `../../.env`.
 
+## Windows install / run / package
+
+Double-clickable scripts live in `python_gui/`:
+
+| Script | Purpose |
+|--------|---------|
+| `install.bat` | Finds Python 3.11+, creates a `.venv` beside the package, installs `requirements.txt`. Run once per machine. |
+| `run.bat` | Launches the app via the venv (`python -m python_gui.main`). |
+| `build.bat` | Builds a standalone `dist\GoldApp\GoldApp.exe` with PyInstaller (uses `goldapp.spec`). |
+| `goldapp.spec` | PyInstaller one-folder spec; entry point is `launch.py`, bundles customtkinter assets + mysql/sqlalchemy/reportlab hidden imports. |
+| `launch.py` | Frozen-app entry: puts the repo root on `sys.path` then starts the package (works around `main.py`'s relative imports). |
+
+The `.env` is **never** bundled — keep it beside `GoldApp.exe` or set `GOLDAPP_ENV`.
+
 ## Parity proof (Phase 1 — auth)
 
 Login matches a `userm` row on `UPPER(HEX(pcode))`. The hash must therefore be
