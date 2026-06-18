@@ -41,6 +41,8 @@ _MODULES: dict[str, str] = {
     "MDI_BARCODE_SINGLE_ENTRY": "python_gui.modules.barcode_entry.view:BarcodeEntryView",
     "MDI_STOCK_REGISTER": "python_gui.modules.stock_register.view:StockRegisterView",
     "MDI_ITEM_STOCK_ADJUSTMENT": "python_gui.modules.item_adjustment.view:ItemAdjustmentView",
+    "MDI_BARCODE_REGISTER": "python_gui.modules.barcode_stock.view:BarcodeStockListView",
+    "MDI_STOCK_VERIFICATION": "python_gui.modules.barcode_stock.view:StockVerificationView",
     "MDI_ORDER_BILL": "python_gui.modules.orders.view:OrderBillView",
     "MDI_SCHEME_COLLECTION": "python_gui.modules.kuri_collection.view:KuriCollectionView",
     "MDI_SMITH_BOOK": "python_gui.modules.smith_book.view:SmithBookView",
