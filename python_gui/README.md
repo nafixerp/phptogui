@@ -84,6 +84,7 @@ existing users without touching the password tables.
 | 4 | **Journal + Account Ledger + Day Book** | `JournalController`, `AccountLedgerController`, `DayBookController` | ✅ done (tested) |
 | 5 | **Sales + Sales Return** | `SalesBillController`, `SalesReturnController` | ✅ done — item grid + calc + return posting (zero-sum tested) |
 | 6 | **Purchase + Purchase Return** | `PurchaseBillController`, `PurchaseReturnController` | ✅ done — item grid + calc + return posting (zero-sum tested) |
+| 5/6 | **Sales/Purchase Registers** (+returns) + bill-print PDF base | `SalesRegisterController` …, `core/pdf.py` | ✅ done (tested) |
 | 7 | **Barcode Entry + Stock Register** | `BarcodeEntryController`, `StockRegisterController` | ✅ done (tested) |
 | 8 | **Order Bill** (header + advance posting) | `OrderBillController` | ✅ done (advance zero-sum tested) |
 | 9 | **Kuri/Scheme Collection + Smith Book** | `KuriCollectionController`, `SmithController` | ✅ done (collection zero-sum, smith weight tested); Gold Loan/Staff payroll remain |
