@@ -145,6 +145,8 @@ Long-tail read reports being ported in themed batches on top of the core.
 | Module | Source | Status |
 |--------|--------|--------|
 | **Customer Bill-wise Receipt / Supplier Bill-wise Payment** | `CustomerBillwiseRcptController`, `SupplierBillwisePaymentController` | ✅ done — one parametrized `PartyBillwiseService`: allocates a receipt/payment across open bills (bumps `salesm.ramtafter`/`purchasem.pamtafter` + writes `collection`), posts the VRB//VPB/ two-line daybook voucher (signs flip per mode) plus a separate JLB/ discount voucher; over-allocation guarded; zero-sum tested |
+| **Change Due-date** | `ChangeDuedateController` | ✅ done (updates `clients.duedate` by code; tested) |
+| **Other Items master** | `OtherItemsController` | ✅ done (`itemsothers` add/edit/delete/list, unique upper-cased codes, column-filtered; tested) |
 
 ## Notes
 

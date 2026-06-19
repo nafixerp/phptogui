@@ -102,6 +102,8 @@ _MODULES: dict[str, str] = {
     "MDI_ORDER_SALE": "python_gui.modules.order_sale.view:OrderSaleView",
     "MDI_ACCOUNTS_CUSTOMER_BILLWISE_RCPT": "python_gui.modules.party_billwise.view:CustomerBillwiseReceiptView",
     "MDI_ACCOUNTS_SUPPLIER_BILLWISE_PAYMENT": "python_gui.modules.party_billwise.view:SupplierBillwisePaymentView",
+    "MDI_ACCOUNTS_CHANGE_DUEDATE": "python_gui.modules.change_duedate.view:ChangeDuedateView",
+    "MDI_OTHER_ITEMS": "python_gui.modules.other_items.view:OtherItemsView",
     "MDI_DELIVERY_STATUS_REPORT": "python_gui.modules.sales_misc_reports.view:SalesMiscReportsView",
     "MDI_VA_CHECK_LIST": "python_gui.modules.sales_misc_reports.view:SalesMiscReportsView",
     "MDI_SUPPLIER_ANALYTICS": "python_gui.modules.party_outstanding.view:PartyOutstandingView",
