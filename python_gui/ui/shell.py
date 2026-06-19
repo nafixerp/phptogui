@@ -101,6 +101,7 @@ _MODULES: dict[str, str] = {
     "MDI_ORDER_ADVANCE_AFTER": "python_gui.modules.order_advance_after.view:OrderAdvanceAfterView",
     "MDI_REPAIR_RETURN": "python_gui.modules.repair_return.view:RepairReturnView",
     "MDI_REPAIR_ISSUE_MEMO_PARTY": "python_gui.modules.remake_issue_memo.view:RemakeIssueMemoView",
+    "MDI_REPAIR_RECEIPT_MEMO_PARTY": "python_gui.modules.repair_receipt_memo.view:RepairReceiptMemoView",
     "MDI_ORDER_SALE": "python_gui.modules.order_sale.view:OrderSaleView",
     "MDI_ACCOUNTS_CUSTOMER_BILLWISE_RCPT": "python_gui.modules.party_billwise.view:CustomerBillwiseReceiptView",
     "MDI_ACCOUNTS_SUPPLIER_BILLWISE_PAYMENT": "python_gui.modules.party_billwise.view:SupplierBillwisePaymentView",
