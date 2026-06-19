@@ -173,6 +173,24 @@ thermal-printer pixel layout.
 or order-bill print — the sales path reuses **Sales Bill Print** above; the
 order-bill layout is a follow-on.
 
+## Masters (tail)
+
+| Module | Source | Status |
+|--------|--------|--------|
+| **Salesman Master** | `AccountMasterController::apiSalesMan` | ✅ done (`sman` grid CRUD: list, account picker from `accountm`, full-table-replace save with each `accode` FK-validated against `accountm`, codes/names upper-cased + `active` Y/N; delete guarded against `orderm.smcode` usage. Wired `MDI_SALESMAN_MASTER`; tested) |
+| **States** | `NativeStatesController` | ✅ done (dynamic table/column resolve across `state`/`state_master`/`statestate`, upsert-by-code save, delete guarded against `salesm.statecode/state/scode` usage, check_usage. Wired `MDI_STATES_ADDING`; tested) |
+
+> The `/master/alloys`, `/master/fashion`, `/master/area`, `/master/route` menu
+> entries have **no backend route** in the Laravel build (menu stubs only), so
+> they are not portable masters. Goldsmith/Refiner/Jewellery/Depositor "masters"
+> are type-filtered views of the customer master (`NativeCustomerController`,
+> ~1600 L) — a larger follow-on.
+
+> **Fix:** the shared `DataGrid` widget package was moved from `ui/widgets` to
+> `modules/widgets` so the `from ..widgets.datagrid import DataGrid` import used
+> by every grid view resolves correctly (it previously pointed at a non-existent
+> path — latent because Tkinter is absent in the headless test env).
+
 ## Notes
 
 - The sandbox where this scaffold was built has **no MySQL server**, so the live

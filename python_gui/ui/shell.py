@@ -116,6 +116,8 @@ _MODULES: dict[str, str] = {
     "MDI_YEAR_END_ACCOUNT_CLOSE": "python_gui.modules.year_end_close.view:YearEndAccountCloseView",
     "MDI_SALES_BILL_PRINT": "python_gui.modules.sales_bill_print.view:SalesBillPrintView",
     "MDI_SCHEME_PASSBOOK": "python_gui.modules.passbook_print.view:PassbookPrintView",
+    "MDI_SALESMAN_MASTER": "python_gui.modules.salesman_master.view:SalesmanMasterView",
+    "MDI_STATES_ADDING": "python_gui.modules.states_master.view:StatesMasterView",
     # --- aliases: distinct menu keys served by an existing multi-mode window ---
     "MDI_STOCK_LEDGER": "python_gui.modules.stock_period_ledger.view:StockPeriodLedgerView",
     "MDI_STOCK_ITEM_HISTORY": "python_gui.modules.stock_period_ledger.view:StockPeriodLedgerView",
