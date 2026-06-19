@@ -108,6 +108,7 @@ _MODULES: dict[str, str] = {
     "MDI_ACCOUNTS_AMT_WGT_TRANSFER": "python_gui.modules.amt_wgt_transfer.view:AmtWgtTransferView",
     "MDI_ACCOUNTS_RESTART_DATE": "python_gui.modules.account_restart_date.view:AccountRestartDateView",
     "MDI_ACCOUNTS_PAYMENT_CONFIRMATION": "python_gui.modules.payment_confirmation.view:PaymentConfirmationView",
+    "MDI_ACCOUNTS_GROUP_AMT_ALLOCATION": "python_gui.modules.group_amt_allocation.view:GroupAmtAllocationView",
     # --- aliases: distinct menu keys served by an existing multi-mode window ---
     "MDI_STOCK_LEDGER": "python_gui.modules.stock_period_ledger.view:StockPeriodLedgerView",
     "MDI_STOCK_ITEM_HISTORY": "python_gui.modules.stock_period_ledger.view:StockPeriodLedgerView",
