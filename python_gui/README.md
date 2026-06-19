@@ -140,6 +140,12 @@ Long-tail read reports being ported in themed batches on top of the core.
 | **Repair Return** | `RepairReturnController` | ✅ done (repairm/repaird write + item-stock decrease via `core/stock_adjust`, `clients.balance` bump, RS/RM4 daybook posting with ROUND balancer, RM4/ voucher; edit reverses balance+stock+daybook; zero-sum + stock tested) |
 | **Order Sale** | `OrderSaleController` (~3000 L) | ✅ done — `build_entries` ports the full RS daybook head list (receipt split + bank commission, customer debit/credit, discount/HMC/TCS/repair/advance/fancy/scheme, GST/VAT tax, AST, RS/ESR/EP/VA) closed to zero with ROUND; `post` reserves serial + SBPREF/SALESB bill no, persists salesm/salesd, decreases stock, posts daybook and marks the order billed (status=2, salebill). Zero-sum + persistence + stock + order-marking tested. PDC/secondary-sync edge paths documented |
 
+## Bucket B tail — secondary entry screens
+
+| Module | Source | Status |
+|--------|--------|--------|
+| **Customer Bill-wise Receipt / Supplier Bill-wise Payment** | `CustomerBillwiseRcptController`, `SupplierBillwisePaymentController` | ✅ done — one parametrized `PartyBillwiseService`: allocates a receipt/payment across open bills (bumps `salesm.ramtafter`/`purchasem.pamtafter` + writes `collection`), posts the VRB//VPB/ two-line daybook voucher (signs flip per mode) plus a separate JLB/ discount voucher; over-allocation guarded; zero-sum tested |
+
 ## Notes
 
 - The sandbox where this scaffold was built has **no MySQL server**, so the live
