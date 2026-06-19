@@ -137,6 +137,7 @@ Long-tail read reports being ported in themed batches on top of the core.
 | **Barcode Multi-Entry** | `BarcodeMultiEntryController` | ✅ done (bulk barcode upsert by bcode, shared rslno/BC-docno, BCNO counter advance, column-filtered, stk='Y'; tested. Secondary-DB mirror is a follow-on) |
 | **Refinery Bill (issue)** | `RefineryBillController` | ✅ done (refinerym/refineryd write + item-stock decrease via shared `core/stock_adjust`, TP test-piece credit, RFB/ voucher, edit reverses+replaces; stock tested) |
 | **Order Update** | `OrderUpdateController` | ✅ done (orderm header + orderd items, `<ORDPREF>/NNNNN` order no, SERIALNO slno, status 1/no advance; delete cascade; tested — counters read through the tx) |
+| **Repair Return** | `RepairReturnController` | ✅ done (repairm/repaird write + item-stock decrease via `core/stock_adjust`, `clients.balance` bump, RS/RM4 daybook posting with ROUND balancer, RM4/ voucher; edit reverses balance+stock+daybook; zero-sum + stock tested) |
 
 ## Notes
 
