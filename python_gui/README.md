@@ -138,6 +138,7 @@ Long-tail read reports being ported in themed batches on top of the core.
 | **Refinery Bill (issue)** | `RefineryBillController` | ✅ done (refinerym/refineryd write + item-stock decrease via shared `core/stock_adjust`, TP test-piece credit, RFB/ voucher, edit reverses+replaces; stock tested) |
 | **Order Update** | `OrderUpdateController` | ✅ done (orderm header + orderd items, `<ORDPREF>/NNNNN` order no, SERIALNO slno, status 1/no advance; delete cascade; tested — counters read through the tx) |
 | **Repair Return** | `RepairReturnController` | ✅ done (repairm/repaird write + item-stock decrease via `core/stock_adjust`, `clients.balance` bump, RS/RM4 daybook posting with ROUND balancer, RM4/ voucher; edit reverses balance+stock+daybook; zero-sum + stock tested) |
+| **Order Sale** | `OrderSaleController` (~3000 L) | ✅ done — `build_entries` ports the full RS daybook head list (receipt split + bank commission, customer debit/credit, discount/HMC/TCS/repair/advance/fancy/scheme, GST/VAT tax, AST, RS/ESR/EP/VA) closed to zero with ROUND; `post` reserves serial + SBPREF/SALESB bill no, persists salesm/salesd, decreases stock, posts daybook and marks the order billed (status=2, salebill). Zero-sum + persistence + stock + order-marking tested. PDC/secondary-sync edge paths documented |
 
 ## Notes
 
