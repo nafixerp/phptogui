@@ -26,8 +26,12 @@ def format_money(value, symbol: str = "₹", places: int = 2) -> str:
 
 def build_document(path: str, *, title: str, shop: dict, details: list[tuple[str, str]],
                    items: list[dict] | None = None, item_columns: list[tuple[str, str]] | None = None,
-                   footer: str = "") -> str:
-    """Write a simple bill/voucher PDF to `path` and return the path."""
+                   totals: list[tuple[str, str]] | None = None, footer: str = "") -> str:
+    """Write a simple bill/voucher PDF to `path` and return the path.
+
+    `totals` renders an optional right-aligned label/value summary block below
+    the line-item table (subtotal, tax, net, etc.).
+    """
     if _RL_ERROR is not None:
         raise RuntimeError("reportlab is not installed. Run: pip install reportlab") from _RL_ERROR
 
@@ -68,6 +72,16 @@ def build_document(path: str, *, title: str, shop: dict, details: list[tuple[str
             y -= 4.5 * mm
             if y < 20 * mm:
                 c.showPage(); y = h - 20 * mm
+
+    if totals:
+        y -= 3 * mm
+        c.line(w / 2, y, w - 12 * mm, y); y -= 5 * mm
+        for label, value in totals:
+            if y < 18 * mm:
+                c.showPage(); y = h - 20 * mm
+            c.setFont("Helvetica-Bold", 9)
+            c.drawRightString(w - 40 * mm, y, f"{label}:")
+            c.drawRightString(w - 12 * mm, y, str(value)); y -= 5 * mm
 
     if footer:
         y -= 6 * mm

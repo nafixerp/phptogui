@@ -152,6 +152,27 @@ Long-tail read reports being ported in themed batches on top of the core.
 | **Party Code Merge** | `PartyCodeMergeController` | ✅ done (re-keys a party code source→target across the 26-pair `REFERENCE_MAP`, carries source opening balances into the target, deletes/zeroes source masters; every table/column guarded + one atomic transaction; tested) |
 | **Year End Account Close** | `YearEndAccountCloseController` (~1330 L) | ✅ done — destructive, confirmation-gated. Flag-driven port of `closeAccounts`: deletes cash/credit sales, sales/purchase returns, purchases, other-item txns, orders, pending/done repairs, smith/refinery/adjustment/kuri/partner-deposit rows up to the closing date (`keepbills`→control=2 filter); rolls forward daybook opening balances (control 1/2 split) + clients sync, other-item opening stock, and the full per-item stock movement engine (sales/purchase/order/repair/smith/refinery/adjustment, typed & level modes, stonemarg); resets IE/AL opening balances, opening stock, party/smith op weights, clears client addr/phone, marks orders/kuri closed, purges out-stock barcodes. All table/column guarded, one atomic transaction. Delete/repair/kuri/daybook-rollforward/keepbills/resets/stock-rollforward/barcode all tested |
 
+## Bucket C — print layouts (reportlab PDFs)
+
+Shared print helpers live in `core/printing.py` (shop/company header from
+`generals`, customer/supplier from `clients`, salesman/state lookups, the
+CGST/SGST/IGST `gst_split`, detail-column totals) and `core/pdf.py` (A5 bill
+builder with header / detail block / line-item table / right-aligned totals).
+The Laravel controllers' many print-layout INI toggles are presentation-only and
+intentionally dropped — these reproduce the **document content**, not the
+thermal-printer pixel layout.
+
+| Module | Source | Status |
+|--------|--------|--------|
+| **Sales Bill Print** | `SalesBillPrintController` | ✅ done (gathers `salesm`+`salesd` with customer/salesman/state, per-row net weight + line totals, GST split, Tax-Invoice/Estimate title by control; renders PDF. Wired to `MDI_SALES_BILL_PRINT`. Data gather + GST split + fallbacks + render tested) |
+| **Sales Return Print** | `SalesReturnPrintController` | ✅ done (`salesrm`+`salesrd` by slno or billno, net weight + totals, GST split, refund = netamt−pamt and closing = ob+refund; PDF. Tested) |
+| **Purchase Bill Print** | `PurchaseBillPrintController` | ✅ done (`purchasem` pr='P' by slno/docno + `purchased`/`purchaserd`, computed net weight, GST reconstructed from `taxamt` when cgst/sgst/igst blank, balance fallback; PDF. Tested) |
+| **Passbook / Kuri Passbook Print** | `PassbookPrintController` | ✅ done — stateful continuation print: reads `kuricolln` from the party's last cursor (`clients.lpslno`), pads start lines + page-fold blanks, and **advances `clients.lpline/lpslno/lpsno`** atomically so the next run resumes correctly; reset reprints from the start. Wired to `MDI_SCHEME_PASSBOOK`. Cursor-advance / continuation / reset / lookup all tested |
+
+`OrderReprintController` is a thin lookup that routes a doc-no to the sales-bill
+or order-bill print — the sales path reuses **Sales Bill Print** above; the
+order-bill layout is a follow-on.
+
 ## Notes
 
 - The sandbox where this scaffold was built has **no MySQL server**, so the live
