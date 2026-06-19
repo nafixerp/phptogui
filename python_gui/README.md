@@ -149,6 +149,8 @@ Long-tail read reports being ported in themed batches on top of the core.
 | **Other Items master** | `OtherItemsController` | ✅ done (`itemsothers` add/edit/delete/list, unique upper-cased codes, column-filtered; tested) |
 | **Ruff Work memo** | `RuffWorkController` | ✅ done (`ruffwrk` grid upsert by slno, blank-party deletes, column-filtered; tested) |
 | **Amount ⇄ Weight Transfer** | `AmtWgtTransferController` | ✅ done (JLB//JLE/ journal: ATOW/party two-line daybook + `daybookratewgt` weight move; signs flip per direction; zero-sum tested) |
+| **Party Code Merge** | `PartyCodeMergeController` | ✅ done (re-keys a party code source→target across the 26-pair `REFERENCE_MAP`, carries source opening balances into the target, deletes/zeroes source masters; every table/column guarded + one atomic transaction; tested) |
+| **Year End Account Close** | `YearEndAccountCloseController` (~1330 L) | ✅ done — destructive, confirmation-gated. Flag-driven port of `closeAccounts`: deletes cash/credit sales, sales/purchase returns, purchases, other-item txns, orders, pending/done repairs, smith/refinery/adjustment/kuri/partner-deposit rows up to the closing date (`keepbills`→control=2 filter); rolls forward daybook opening balances (control 1/2 split) + clients sync, other-item opening stock, and the full per-item stock movement engine (sales/purchase/order/repair/smith/refinery/adjustment, typed & level modes, stonemarg); resets IE/AL opening balances, opening stock, party/smith op weights, clears client addr/phone, marks orders/kuri closed, purges out-stock barcodes. All table/column guarded, one atomic transaction. Delete/repair/kuri/daybook-rollforward/keepbills/resets/stock-rollforward/barcode all tested |
 
 ## Notes
 
