@@ -98,6 +98,7 @@ _MODULES: dict[str, str] = {
     "MDI_BARCODE_MULTI_ENTRY": "python_gui.modules.barcode_multi.view:BarcodeMultiEntryView",
     "MDI_REFINERY_BILL": "python_gui.modules.refinery_bill.view:RefineryBillView",
     "MDI_ORDER_UPDATE": "python_gui.modules.order_update.view:OrderUpdateView",
+    "MDI_ORDER_ADVANCE_AFTER": "python_gui.modules.order_advance_after.view:OrderAdvanceAfterView",
     "MDI_REPAIR_RETURN": "python_gui.modules.repair_return.view:RepairReturnView",
     "MDI_ORDER_SALE": "python_gui.modules.order_sale.view:OrderSaleView",
     "MDI_ACCOUNTS_CUSTOMER_BILLWISE_RCPT": "python_gui.modules.party_billwise.view:CustomerBillwiseReceiptView",
