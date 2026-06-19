@@ -97,6 +97,7 @@ _MODULES: dict[str, str] = {
     "MDI_ACCOUNTS_RATE_DIFF_ADJUSTMENT": "python_gui.modules.rate_diff.view:RateDiffView",
     "MDI_BARCODE_MULTI_ENTRY": "python_gui.modules.barcode_multi.view:BarcodeMultiEntryView",
     "MDI_REFINERY_BILL": "python_gui.modules.refinery_bill.view:RefineryBillView",
+    "MDI_ORDER_UPDATE": "python_gui.modules.order_update.view:OrderUpdateView",
     "MDI_DELIVERY_STATUS_REPORT": "python_gui.modules.sales_misc_reports.view:SalesMiscReportsView",
     "MDI_VA_CHECK_LIST": "python_gui.modules.sales_misc_reports.view:SalesMiscReportsView",
     "MDI_SUPPLIER_ANALYTICS": "python_gui.modules.party_outstanding.view:PartyOutstandingView",

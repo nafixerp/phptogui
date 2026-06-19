@@ -136,6 +136,7 @@ Long-tail read reports being ported in themed batches on top of the core.
 | **Rate Difference Adjustment** | `RateDiffAdjustmentController` | ✅ done (two-line journal RDIFF/party, JLB//JLE/ voucher by control, optional collection row for bill-based diffs; zero-sum tested) |
 | **Barcode Multi-Entry** | `BarcodeMultiEntryController` | ✅ done (bulk barcode upsert by bcode, shared rslno/BC-docno, BCNO counter advance, column-filtered, stk='Y'; tested. Secondary-DB mirror is a follow-on) |
 | **Refinery Bill (issue)** | `RefineryBillController` | ✅ done (refinerym/refineryd write + item-stock decrease via shared `core/stock_adjust`, TP test-piece credit, RFB/ voucher, edit reverses+replaces; stock tested) |
+| **Order Update** | `OrderUpdateController` | ✅ done (orderm header + orderd items, `<ORDPREF>/NNNNN` order no, SERIALNO slno, status 1/no advance; delete cascade; tested — counters read through the tx) |
 
 ## Notes
 
