@@ -120,6 +120,12 @@ _MODULES: dict[str, str] = {
     "MDI_JEWELLERY_TRANSACTIONS": "python_gui.modules.smith_book.view:SmithBookView",
     "MDI_JEWELLERY_ANALYTICS": "python_gui.modules.extra_amt_report.view:ExtraAmtReportView",
     "MDI_PURITY_TESTING": "python_gui.modules.purity_testing.view:PurityTestingView",
+    "MDI_REPAIR_ANALYTICS": "python_gui.modules.remake_report.view:RemakeReportView",
+    # --- alias group keys -> existing report windows ---
+    "MDI_BARCODE_REPORTS": "python_gui.modules.barcode_profit.view:BarcodeProfitView",
+    "MDI_GST_TAX_REPORTS": "python_gui.modules.gst_report.view:GstReportView",
+    "MDI_OTHER_REPORTS": "python_gui.modules.misc_reports.view:MiscReportsView",
+    "MDI_FINANCIAL_STATEMENTS": "python_gui.modules.account_reports.view:AccountReportsView",
     "MDI_DELIVERY_STATUS_REPORT": "python_gui.modules.sales_misc_reports.view:SalesMiscReportsView",
     "MDI_VA_CHECK_LIST": "python_gui.modules.sales_misc_reports.view:SalesMiscReportsView",
     "MDI_SUPPLIER_ANALYTICS": "python_gui.modules.party_outstanding.view:PartyOutstandingView",
